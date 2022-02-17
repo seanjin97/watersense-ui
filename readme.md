@@ -2,6 +2,7 @@
 
 This project was bootstrapped with [Vite - React](https://vitejs.dev/guide/).
 
+View the deployed app at https://watersense-ui.vercel.app/
 ## Project setup
 1. Install [pnpm](https://pnpm.io/installation#using-corepack). I used the corepack method in the installation docs.
 2. `pnpm i` to install dependencies.
@@ -54,7 +55,7 @@ To customise components.
 We'll be using React context hooks for global state management.
 
 ## Project structure
-Outline of the project
+Outline of the project.
 
 ```
 watersense-ui

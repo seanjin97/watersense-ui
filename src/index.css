@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "LeagueSpartanBlack";
+  src: local("LeagueSpartanBlack"), url(./src/assets/fonts/LeagueSpartan-Black.ttf) format("truetype");
+  font-family: "LeagueSpartanExtraBold";
+  src: local("LeagueSpartanExtraBold"), url(./src/assets/fonts/LeagueSpartan-ExtraBold.ttf) format("truetype");
+  font-family: "SpartanMBExtraBold";
+  src: local("SpartanMBExtraBold"), url(./src/assets/fonts/SpartanMB-ExtraBold.otf) format("opentype");
+  font-family: "SpartanMBRegular";
+  src: local("SpartanMBRegular"), url(./src/assets/fonts/SpartanMB-Regular.otf) format("opentyp");
+  font-family: "LeagueSpartanLight";
+  src: local("LeagueSpartanLight"), url(./src/assets/fonts/LeagueSpartan-Light.ttf) format("opentype");
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

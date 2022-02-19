@@ -67,4 +67,5 @@ watersense-ui
         styles - customised themeing and colour schemes
         App.jsx - app entrypoint
         main.jsx - for providers only
+    .env - store env variables
 ```

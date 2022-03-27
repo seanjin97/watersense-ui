@@ -34,7 +34,7 @@ export default function Navbar() {
 
         <BottomNavigationAction label="Home" icon={<HomeIcon />} component={Link} to={'/home'}/>
 
-        <BottomNavigationAction label="Profile" icon={<PersonIcon />} component={Link} to={'/profile'}/>
+        <BottomNavigationAction label="Goals" icon={<PersonIcon />} component={Link} to={'/profile'}/>
         </BottomNavigation>
     </div>
   );

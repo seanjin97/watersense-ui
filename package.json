@@ -10,6 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.5.1",
     "@nextui-org/react": "^1.0.2-beta.4",
     "chart.js": "^3.7.1",
     "prop-types": "^15.8.1",

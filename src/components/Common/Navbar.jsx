@@ -5,6 +5,10 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
 import PersonIcon from '@material-ui/icons/Person';
 import SignalCellularAltIcon from '@material-ui/icons/SignalCellularAlt';
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+
+
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -31,22 +35,17 @@ export default function Navbar() {
 					label='Leaderboard'
 					icon={<SignalCellularAltIcon />}
 					component={Link}
-					to={'/leaderboard'}
+					to="/leaderboard"
 				/>
 
 				<BottomNavigationAction
 					label='Home'
 					icon={<HomeIcon />}
 					component={Link}
-					to={'/home'}
+					to="/home"
 				/>
 
-				<BottomNavigationAction
-					label='Goals'
-					icon={<PersonIcon />}
-					component={Link}
-					to={'/goals'}
-				/>
+<BottomNavigationAction label="Overview" icon={<CalendarTodayIcon />} component={Link} to="/Overview"/>
 			</BottomNavigation>
 		</div>
 	);

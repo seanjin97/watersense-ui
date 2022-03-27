@@ -5,6 +5,7 @@ import Landing from './pages/Landing';
 import Leaderboard from './pages/Leaderboard';
 import Navbar from './components/Common/Navbar';
 import Goals from './pages/Goals';
+import Overview from './pages/Overview'
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 					<Route path='/home' element={<Home />} />
 					<Route path='/leaderboard' element={<Leaderboard />} />
 					<Route path='/goals' element={<Goals />} />
+					<Route path='/overview' element={<Overview />} />
 				</Routes>
 				<Navbar />
 			</div>

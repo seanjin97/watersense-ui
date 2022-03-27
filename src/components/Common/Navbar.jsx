@@ -7,8 +7,6 @@ import PersonIcon from '@material-ui/icons/Person';
 import SignalCellularAltIcon from '@material-ui/icons/SignalCellularAlt';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-
-
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({

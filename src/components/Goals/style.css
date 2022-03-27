@@ -1,12 +1,24 @@
 
+
+.GoalHeading
+{
+    margin-left: 100px;
+    padding-bottom: 50px;
+}
+
 .submit {
     width: 100px;
     height: 50px;
+    margin-left: 50px;
+   
   }
-.GoalHeading 
+ .waterlogo 
 {
-    margin: 50px;
-}
+    margin-left: 200px;
+} 
   input[type="range"] {
       width:500px;
   }
+.submit{
+    margin-left: 200px;
+}

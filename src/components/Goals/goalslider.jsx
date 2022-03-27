@@ -1,6 +1,6 @@
 
 import React,{useState,useEffect} from "react";
-export default function App() {
+export default function GoalSlider() {
     const [value,onChange]=useState(1);
     useEffect(()=>{
         const ele = document.querySelector('.buble');
@@ -16,7 +16,8 @@ export default function App() {
                     }}
         />
         <div className="buble"> 
-        {value +'L'}
+        {'Monthly: ' + value +'L'}
+        <br></br>
         <br></br>
         <button className ="submit">Set Limit</button>   
         </div>

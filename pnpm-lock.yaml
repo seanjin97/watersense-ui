@@ -14,6 +14,7 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-react: ^7.28.0
   eslint-plugin-react-hooks: ^4.3.0
+  lodash: ^4.17.21
   prettier: ^2.5.1
   prop-types: ^15.8.1
   react: ^17.0.2
@@ -34,6 +35,7 @@ dependencies:
   '@material-ui/icons': 4.11.2_fced322086cd04afb0b6feec9e866920
   '@nextui-org/react': 1.0.2-beta.4_react-dom@17.0.2+react@17.0.2
   chart.js: 3.7.1
+  lodash: 4.17.21
   prop-types: 15.8.1
   react: 17.0.2
   react-bootstrap: 2.1.2_react-dom@17.0.2+react@17.0.2

@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import _ from 'lodash';
 import HomeTabs from '../components/Home/HomeTabs';
 import Recommendation from '../components/Home/Recommendation';
 import '../components/Home/style.css';
 
 function Home() {
 	// const { state, dispatch } = useGlobalContext();
+	const [data, setData] = useState({});
+	const [recommendations, setRecommendations] = useState({});
+	const getData = async () => {
+		const response = await fetch(
+			`${import.meta.env.VITE_BACKEND_URL}/analytics/detailed/test1`
+		);
+
+		const reco = await fetch(
+			`${import.meta.env.VITE_BACKEND_URL}/recommendations/test1`
+		);
+
+		setRecommendations(await reco.json());
+		setData(await response.json());
+	};
+
+	useEffect(() => {
+		if (_.isEmpty(data) && _.isEmpty(recommendations)) {
+			getData();
+		}
+	}, []);
 
 	return (
 		<div className='center'>
 			<div className='center mt-5'>
 				<h3>Welcome, User</h3>
 				<h5>This is your usage so far</h5>
-				<HomeTabs />
+				<HomeTabs data={data} />
 
 				<div className='center'>
-					<Recommendation />
+					<Recommendation recommendations={recommendations} />
 				</div>
 			</div>
 			<div>

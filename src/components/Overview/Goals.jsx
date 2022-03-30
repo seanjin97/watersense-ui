@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { blue } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Monthlyslider from '../Overview/monthlyslider';
-import logo from '../Overview/droplet1.png'
+import Monthlyslider from './monthlyslider';
+import logo from './droplet1.png';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -27,14 +27,30 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 function GoalSetting() {
+	const [goal, setGoal] = useState(0);
+	const sendGoal = async () => {
+		const response = await fetch(
+			'https://watersense-api-watersense-seanjin97.cloud.okteto.net/goals',
+			{
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ username: 'test1', month: goal }),
+			}
+		);
+	};
+
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Stack spacing={2} alignItems='center'>
 				<Item>
 					<h1 className='GoalHeading'>Monthly Limit</h1>
 					<img className='waterlogo' src={logo} width={100} height={100} />
-					<Monthlyslider />
-					<ColorButton className='monthlySubmit' variant='contained'>
+					<Monthlyslider goal={goal} setGoal={setGoal} />
+					<ColorButton
+						className='monthlySubmit'
+						variant='contained'
+						onClick={sendGoal}
+					>
 						Submit
 					</ColorButton>
 				</Item>

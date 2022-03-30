@@ -17,10 +17,13 @@ function valuetext(value) {
 	return `${value}L`;
 }
 
-export default function DiscreteSliderMarks() {
+export default function DiscreteSliderMarks({ goal, setGoal }) {
+
+
 	return (
 		<Box sx={{ width: 300 }}>
 			<Slider
+				onChange={(e) => setGoal(e.target.value)}
 				aria-label='Custom marks'
 				min={0}
 				max={50000}
@@ -28,6 +31,7 @@ export default function DiscreteSliderMarks() {
 				getAriaValueText={valuetext}
 				valueLabelDisplay='auto'
 				marks={marks}
+				value={goal}
 			/>
 		</Box>
 	);

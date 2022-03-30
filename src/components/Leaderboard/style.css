@@ -19,10 +19,12 @@
 
 .board {
     text-align: center;
+    margin: auto;
 }
 
 .board .leaderboard{
     margin-bottom: 1em;
+    /* margin: auto; */
 }
 
 .board .duration{
@@ -51,8 +53,12 @@
 
 #profile{
     /* display: flex; */
-
+    margin: auto;
     margin-top: 3em;
+
+    margin: 0 auto;
+    width: 480px;
+    /* display: block; */
 }
 
 #profile .flex{
@@ -61,6 +67,7 @@
     gap: 1em;
     text-align: left;
     margin-bottom: 2em;
+    
 }
 
 #profile .flex .item{

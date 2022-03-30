@@ -5,9 +5,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Monthlyslider from '../components/Goals/monthlyslider';
-import Weeklyslider from '../components/Goals/weeklyslider';
-import logo from '../components/Goals/droplet1.png';
+import Monthlyslider from '../Overview/monthlyslider';
+import logo from '../Overview/droplet1.png'
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -39,26 +38,8 @@ function GoalSetting() {
 						Submit
 					</ColorButton>
 				</Item>
-				<Item>
-					<h1 className='GoalHeading'>Weekly Limit</h1>
-					<img className='waterlogo' src={logo} width={100} height={100} />
-					<Weeklyslider />
-					<ColorButton className='weeklySubmit' variant='contained'>
-						Submit
-					</ColorButton>
-				</Item>
 			</Stack>
 		</Box>
-		/*
-		<div className='App' id='main'>
-			<div>
-				<h1 className='GoalHeading'>Monthly Limit</h1>
-				<img className='waterlogo' src={logo} width={100} height={100} />
-				<Goalslider />
-				<ColorButton variant='contained'>Submit</ColorButton>
-			</div>
-		</div>
-		*/
 	);
 }
 

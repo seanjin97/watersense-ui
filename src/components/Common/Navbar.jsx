@@ -33,17 +33,22 @@ export default function Navbar() {
 					label='Leaderboard'
 					icon={<SignalCellularAltIcon />}
 					component={Link}
-					to="/leaderboard"
+					to='/leaderboard'
 				/>
 
 				<BottomNavigationAction
 					label='Home'
 					icon={<HomeIcon />}
 					component={Link}
-					to="/home"
+					to='/home'
 				/>
 
-<BottomNavigationAction label="Overview" icon={<CalendarTodayIcon />} component={Link} to="/Overview"/>
+				<BottomNavigationAction
+					label='Overview and Goals'
+					icon={<CalendarTodayIcon />}
+					component={Link}
+					to={'/Overview'}
+				/>
 			</BottomNavigation>
 		</div>
 	);

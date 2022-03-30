@@ -10,8 +10,7 @@ import { Paper } from '@material-ui/core';
 import Chart from 'chart.js/auto';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
-import './style.css'; 
-
+import './style.css';
 
 import { WEEKLY_MOCK_DATA } from '../database';
 
@@ -51,10 +50,8 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		backgroundColor: theme.palette.background.paper,
-		
 	},
 }));
-
 
 export default function HomeTabs() {
 	const classes = useStyles();
@@ -70,9 +67,7 @@ export default function HomeTabs() {
 	};
 
 	return (
-
-
-		<div className={classes.root} >
+		<div className={classes.root}>
 			<Paper>
 				<Tabs
 					value={value}
@@ -96,11 +91,10 @@ export default function HomeTabs() {
 				<TabPanel value={value} index={0} dir={theme.direction}>
 					<div className='centerHomeTab'>
 						<BarChart chartData={WEEKLY_MOCK_DATA} />
-					
+
 						<h5>Water Outlets</h5>
-					
-					<PieChart chartData={WEEKLY_MOCK_DATA}/>
-					
+
+						<PieChart chartData={WEEKLY_MOCK_DATA} />
 					</div>
 				</TabPanel>
 
@@ -111,8 +105,6 @@ export default function HomeTabs() {
 				<TabPanel value={value} index={2} dir={theme.direction}>
 					Daily
 				</TabPanel>
-
-				
 			</SwipeableViews>
 		</div>
 	);

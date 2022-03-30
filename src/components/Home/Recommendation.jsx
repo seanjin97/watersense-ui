@@ -60,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-function Recommendation() {
+function Recommendation({ recommendations }) {
+	console.log(recommendations);
 	const classes = useStyles();
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = React.useState(0);
@@ -98,7 +99,7 @@ function Recommendation() {
 					</div>
 				))}
 			</AutoPlaySwipeableViews>
-            <Paper square elevation={0} className={classes.header}>
+			<Paper square elevation={0} className={classes.header}>
 				<Typography>{tutorialSteps[activeStep].label}</Typography>
 			</Paper>
 			<MobileStepper

@@ -8,15 +8,27 @@ function Home() {
 
 	return (
 		<div className='center'>
-			<div className='center mt-5'>
+			
 				<h3>Welcome, User</h3>
 				<h5>This is your usage so far</h5>
-				<HomeTabs />
+				<div id='homeTabs'>
 
-				<div className='center'>
-					<Recommendation />
+				<HomeTabs />	
+				
+				
+
+					<div id='recommendations'>
+						
+						<h5>Recommendations</h5>
+						<div id="img">
+
+							<Recommendation />
+						</div>
+						
+					
+					</div>
 				</div>
-			</div>
+			
 			<div>
 				{/* Count: {state.counter}
 				<Button onClick={() => dispatch({ type: 'increment' })}>+</Button>

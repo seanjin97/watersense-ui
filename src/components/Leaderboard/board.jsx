@@ -12,7 +12,7 @@ export default function Board() {
 	return (
 		<div className='board'>
 			<h1 className='leaderboard'>Leaderboard</h1>
-			<div className='duration'>
+			{/* <div className='duration'>
 				<button onClick={handleClick} data-id='7'>
 					Weekly
 				</button>
@@ -22,7 +22,7 @@ export default function Board() {
 				<button onClick={handleClick} data-id='0'>
 					Yearly
 				</button>
-			</div>
+			</div> */}
 
 			<Profiles Leaderboard={between(LEADERBOARD_MOCK_DATA, period)}></Profiles>
 		</div>

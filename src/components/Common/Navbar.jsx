@@ -40,14 +40,14 @@ export default function Navbar() {
 					label='Home'
 					icon={<HomeIcon />}
 					component={Link}
-					to='/home'
+					to='/'
 				/>
 
 				<BottomNavigationAction
 					label='Overview and Goals'
 					icon={<CalendarTodayIcon />}
 					component={Link}
-					to={'/Overview'}
+					to='/Overview'
 				/>
 			</BottomNavigation>
 		</div>

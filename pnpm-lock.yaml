@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@material-ui/core': ^4.12.3
   '@material-ui/icons': ^4.11.2
+  '@mui/icons-material': ^5.5.1
   '@nextui-org/react': ^1.0.2-beta.4
   '@vitejs/plugin-react': ^1.0.7
   chart.js: ^3.7.1
@@ -33,6 +34,7 @@ specifiers:
 dependencies:
   '@material-ui/core': 4.12.3_react-dom@17.0.2+react@17.0.2
   '@material-ui/icons': 4.11.2_fced322086cd04afb0b6feec9e866920
+  '@mui/icons-material': 5.5.1_react@17.0.2
   '@nextui-org/react': 1.0.2-beta.4_react-dom@17.0.2+react@17.0.2
   chart.js: 3.7.1
   lodash: 4.17.21
@@ -1475,6 +1477,21 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-is: 17.0.2
+    dev: false
+
+  /@mui/icons-material/5.5.1_react@17.0.2:
+    resolution: {integrity: sha512-40f68p5+Yhq3dCn3QYHqQt5RETPyR3AkDw+fma8PtcjqvZ+d+jF84kFmT6NqwA3he7TlwluEtkyAmPzUE4uPdA==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^16.8.6 || ^17.0.0
+      react: ^17.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.17.2
+      react: 17.0.2
     dev: false
 
   /@nextui-org/react/1.0.2-beta.4_react-dom@17.0.2+react@17.0.2:

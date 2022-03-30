@@ -3,10 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@material-ui/core': ^4.12.3
   '@material-ui/icons': ^4.11.2
-<<<<<<< HEAD
-=======
   '@mui/icons-material': ^5.5.1
->>>>>>> e2b24bf (testing)
   '@nextui-org/react': ^1.0.2-beta.4
   '@vitejs/plugin-react': ^1.0.7
   chart.js: ^3.7.1
@@ -27,10 +24,7 @@ specifiers:
   react-is: ^17.0.2
   react-router-dom: '6'
   react-swipeable-views: ^0.14.0
-<<<<<<< HEAD
   react-swipeable-views-utils: ^0.14.0
-=======
->>>>>>> e2b24bf (testing)
   reactjs-bottom-navigation: ^1.0.4
   styled-components: ^5.3.3
   vite: ^2.8.6
@@ -39,10 +33,7 @@ specifiers:
 dependencies:
   '@material-ui/core': 4.12.3_react-dom@17.0.2+react@17.0.2
   '@material-ui/icons': 4.11.2_fced322086cd04afb0b6feec9e866920
-<<<<<<< HEAD
-=======
   '@mui/icons-material': 5.5.1_react@17.0.2
->>>>>>> e2b24bf (testing)
   '@nextui-org/react': 1.0.2-beta.4_react-dom@17.0.2+react@17.0.2
   chart.js: 3.7.1
   prop-types: 15.8.1
@@ -53,10 +44,7 @@ dependencies:
   react-is: 17.0.2
   react-router-dom: 6.2.1_react-dom@17.0.2+react@17.0.2
   react-swipeable-views: 0.14.0_react@17.0.2
-<<<<<<< HEAD
   react-swipeable-views-utils: 0.14.0_react@17.0.2
-=======
->>>>>>> e2b24bf (testing)
   reactjs-bottom-navigation: 1.0.4_react@17.0.2
   styled-components: 5.3.3_281a4fa50a045c9112baf635f3bc27a7
   vite: 2.8.6

@@ -11,6 +11,7 @@ import Chart from 'chart.js/auto';
 import { Loading } from '@nextui-org/react';
 import PieChart from './PieChart';
 import BarChart from './barChart';
+import './style.css';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -48,7 +49,6 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
 	root: {
 		backgroundColor: theme.palette.background.paper,
-		width: 500,
 	},
 }));
 
@@ -266,24 +266,26 @@ export default function HomeTabs({ data }) {
 				onChangeIndex={handleChangeIndex}
 			>
 				<TabPanel value={value} index={0} dir={theme.direction}>
-					<h5>Weekly</h5>
-					{data.dmy ? (
-						<BarChart chartData={weeklyChartData} />
-					) : (
-						<div className='d-flex justify-content-center'>
-							<Loading />
+					<div className='centerHomeTab'>
+						<h5>Weekly</h5>
+						{data.dmy ? (
+							<BarChart chartData={weeklyChartData} />
+						) : (
+							<div className='d-flex justify-content-center'>
+								<Loading />
+							</div>
+						)}
+						<div>
+							<h5>Water Outlets</h5>
 						</div>
-					)}
-					<div>
-						<h5>Water Outlets</h5>
+						{data.sensor ? (
+							<PieChart chartData={weeklyPieData} />
+						) : (
+							<div className='d-flex justify-content-center'>
+								<Loading />
+							</div>
+						)}
 					</div>
-					{data.sensor ? (
-						<PieChart chartData={weeklyPieData} />
-					) : (
-						<div className='d-flex justify-content-center'>
-							<Loading />
-						</div>
-					)}
 				</TabPanel>
 
 				<TabPanel value={value} index={1} dir={theme.direction}>

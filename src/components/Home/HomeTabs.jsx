@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import { Paper } from '@material-ui/core';
 import Chart from 'chart.js/auto';
 import PieChart from './PieChart';
-import BarChart from './BarChart';
+import BarChart from './barChart';
 
 import { WEEKLY_MOCK_DATA } from '../database';
 
@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-
 export default function HomeTabs() {
 	const classes = useStyles();
 	const theme = useTheme();
@@ -94,7 +93,7 @@ export default function HomeTabs() {
 					<div>
 						<h5>Water Outlets</h5>
 					</div>
-					<PieChart chartData={WEEKLY_MOCK_DATA}/>
+					<PieChart chartData={WEEKLY_MOCK_DATA} />
 				</TabPanel>
 
 				<TabPanel value={value} index={1} dir={theme.direction}>

@@ -1,15 +1,14 @@
 import React from 'react';
-import Monthreview from '../components/Overview/monthreview';
-import '../components/Goals/style.css';
-import { Grid } from '@material-ui/core';
-import logo from '../components/Goals/droplet1.png'
+import Overview from '../components/Overview/Overview';
+
+
 
 function MonthlyOverview() {
 	return (
 		<div className="App" id='main'>
 			
 			<div>
-				<Monthreview/>
+				<Overview/>
 			</div>
 			
 		</div>

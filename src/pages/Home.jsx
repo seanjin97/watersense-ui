@@ -1,29 +1,26 @@
-import { Button } from '@nextui-org/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { StyledH1 } from '../components/Common/Texts';
-import { useGlobalContext } from '../store/reducer';
+import HomeTabs from '../components/Home/HomeTabs';
+import Recommendation from '../components/Home/Recommendation';
+import '../components/Home/style.css';
 
 function Home() {
-	const { state, dispatch } = useGlobalContext();
+	// const { state, dispatch } = useGlobalContext();
 
 	return (
-		<div>
-			<div>
-				<StyledH1>Home page</StyledH1>
+		<div className='center'>
+			<div className='center mt-5'>
+				<h3>Welcome, User</h3>
+				<h5>This is your usage so far</h5>
+				<HomeTabs />
+
+				<div className='center'>
+					<Recommendation />
+				</div>
 			</div>
 			<div>
-				<Link to='/'>
-					<Button>Click to go to landing page</Button>
-				</Link>
-				<Link to='/leaderboard'>
-					<Button>Click to go to leaderboard page</Button>
-				</Link>
-			</div>
-			<div>
-				Count: {state.counter}
+				{/* Count: {state.counter}
 				<Button onClick={() => dispatch({ type: 'increment' })}>+</Button>
-				<Button onClick={() => dispatch({ type: 'decrement' })}>-</Button>
+				<Button onClick={() => dispatch({ type: 'decrement' })}>-</Button> */}
 			</div>
 		</div>
 	);

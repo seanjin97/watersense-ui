@@ -10,7 +10,8 @@ export default function BarChart({ chartData }) {
 				width={600}
 				options={{
 					maintainAspectRatio: false,
-					scales: { // need to check scales issues
+					scales: {
+						// need to check scales issues
 						xAxis: [
 							{
 								gridLines: {
@@ -25,7 +26,7 @@ export default function BarChart({ chartData }) {
 								},
 								gridLines: {
 									display: false,
-								}
+								},
 							},
 						],
 					},

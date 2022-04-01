@@ -6,8 +6,8 @@ body{
     margin: auto;
 }
 .center {
-    margin: auto;
-    width: 90%;
+    /* margin: auto;
+    width: 90%; */
 
     /* border: 5px solid #FFFF00; */
     /* padding: 10px;*/
@@ -48,9 +48,9 @@ h5{
     padding: 0px;
 }
 #recommendations{
-    padding: 24px;
+    /* padding: 24px;
     width: 100%; 
     margin: auto;
 
-    align-content: center;
+    align-content: center; */
 }

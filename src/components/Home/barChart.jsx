@@ -1,7 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
-export default function BarChart({ chartData }) {
+export default function BarChart({ chartData, yAxis, xAxis }) {
 	return (
 		<div>
 			<Bar

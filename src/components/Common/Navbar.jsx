@@ -8,6 +8,7 @@ import SignalCellularAltIcon from '@material-ui/icons/SignalCellularAlt';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const useStyles = makeStyles({
 	//   root: {
@@ -15,13 +16,27 @@ const useStyles = makeStyles({
 	//   },
 });
 
+const styles = {
+	stickToBottom: {
+		width: '100%',
+		position: 'fixed',
+		bottom: 0,
+	},
+};
+
+const StickyBottomNav = styled(BottomNavigation)`
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+`;
+
 export default function Navbar() {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(1);
 
 	return (
 		<div className='justify-center'>
-			<BottomNavigation
+			<StickyBottomNav
 				value={value}
 				onChange={(event, newValue) => {
 					setValue(newValue);
@@ -44,12 +59,12 @@ export default function Navbar() {
 				/>
 
 				<BottomNavigationAction
-					label='Overview and Goals'
+					label='Goals'
 					icon={<CalendarTodayIcon />}
 					component={Link}
 					to='/Overview'
 				/>
-			</BottomNavigation>
+			</StickyBottomNav>
 		</div>
 	);
 }

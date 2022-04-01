@@ -12,6 +12,7 @@ import { Loading } from '@nextui-org/react';
 import PieChart from './PieChart';
 import BarChart from './barChart';
 import './style.css';
+import colors from '../../styles/colors';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -56,7 +57,7 @@ export default function HomeTabs({ data }) {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [value, setValue] = React.useState(0);
-	console.log(data);
+
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
@@ -71,25 +72,18 @@ export default function HomeTabs({ data }) {
 				labels: data.dmy.weekly.map((item) => item.date),
 				datasets: [
 					{
-						label: 'Amount of Water Used',
+						type: 'bar',
+						label: 'Amount of water used (L)',
 						data: data.dmy.weekly.map((item) => item.total_usage / 1000),
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)',
-						],
-						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)',
-						],
-						borderWidth: 1,
+						backgroundColor: [colors.blue.lighterest],
+						borderColor: [colors.blue.lighterest],
+					},
+					{
+						type: 'line',
+						label: 'Amount of water used',
+						data: data.dmy.weekly.map((item) => item.total_usage / 1500),
+						fill: false,
+						borderColor: [colors.blue.darker],
 					},
 				],
 		  }
@@ -101,25 +95,17 @@ export default function HomeTabs({ data }) {
 				labels: data.dmy.monthly.map((item) => item.date),
 				datasets: [
 					{
-						label: 'Amount of Water Used',
+						label: 'Amount of Water Used (L)',
 						data: data.dmy.monthly.map((item) => item.total_usage / 1000),
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)',
-						],
-						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)',
-						],
-						borderWidth: 1,
+						backgroundColor: [colors.blue.lighterest],
+						borderColor: [colors.blue.lighterest],
+					},
+					{
+						type: 'line',
+						label: 'Amount of water used',
+						data: data.dmy.monthly.map((item) => item.total_usage / 1500),
+						fill: false,
+						borderColor: [colors.blue.darker],
 					},
 				],
 		  }
@@ -127,28 +113,20 @@ export default function HomeTabs({ data }) {
 	const dailyChartData = data.dmy
 		? {
 				// eslint-disable-next-line react/prop-types
-				labels: data.dmy.daily.map((item) => item.date),
+				labels: data.dmy.daily.map((item) => `${item.hour}:00H`),
 				datasets: [
 					{
-						label: 'Amount of Water Used',
+						label: 'Amount of Water Used (L)',
 						data: data.dmy.daily.map((item) => item.total_usage / 1000),
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)',
-						],
-						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)',
-						],
-						borderWidth: 1,
+						backgroundColor: [colors.blue.lighterest],
+						borderColor: [colors.blue.lighterest],
+					},
+					{
+						type: 'line',
+						label: 'Amount of water used',
+						data: data.dmy.daily.map((item) => item.total_usage / 1500),
+						fill: false,
+						borderColor: [colors.blue.darker],
 					},
 				],
 		  }
@@ -157,26 +135,30 @@ export default function HomeTabs({ data }) {
 	const weeklyPieData = data.sensor
 		? {
 				// eslint-disable-next-line react/prop-types
-				labels: data.sensor.weekly.map((item) => item.device),
+				labels: data.sensor.weekly.map(
+					(item) => `${item.device} water usage (L)`
+				),
 				datasets: [
 					{
-						label: 'Amount of Water Used',
+						label: 'Amount of Water Used (L)',
 						data: data.sensor.weekly.map((item) => item.total_usage / 1000),
 						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)',
+							colors.blue.darkest,
+							colors.blue.darkerer,
+							colors.blue.darker,
+							colors.blue.lighter,
+							colors.blue.lighterer,
+							colors.blue.lightest,
+							colors.blue.lighterest,
 						],
 						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)',
+							colors.blue.darkest,
+							colors.blue.darkerer,
+							colors.blue.darker,
+							colors.blue.lighter,
+							colors.blue.lighterer,
+							colors.blue.lightest,
+							colors.blue.lighterest,
 						],
 						borderWidth: 1,
 					},
@@ -187,26 +169,30 @@ export default function HomeTabs({ data }) {
 	const monthlyPieData = data.sensor
 		? {
 				// eslint-disable-next-line react/prop-types
-				labels: data.sensor.monthly.map((item) => item.device),
+				labels: data.sensor.monthly.map(
+					(item) => `${item.device} water usage (L)`
+				),
 				datasets: [
 					{
-						label: 'Amount of Water Used',
+						label: 'Amount of Water Used (L)',
 						data: data.sensor.monthly.map((item) => item.total_usage / 1000),
 						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)',
+							colors.blue.darkest,
+							colors.blue.darkerer,
+							colors.blue.darker,
+							colors.blue.lighter,
+							colors.blue.lighterer,
+							colors.blue.lightest,
+							colors.blue.lighterest,
 						],
 						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)',
+							colors.blue.darkest,
+							colors.blue.darkerer,
+							colors.blue.darker,
+							colors.blue.lighter,
+							colors.blue.lighterer,
+							colors.blue.lightest,
+							colors.blue.lighterest,
 						],
 						borderWidth: 1,
 					},
@@ -217,26 +203,30 @@ export default function HomeTabs({ data }) {
 	const dailyPieData = data.sensor
 		? {
 				// eslint-disable-next-line react/prop-types
-				labels: data.sensor.daily.map((item) => item.device),
+				labels: data.sensor.daily.map(
+					(item) => `${item.device} water usage (L)`
+				),
 				datasets: [
 					{
-						label: 'Amount of Water Used',
+						label: 'Amount of Water Used (L)',
 						data: data.sensor.daily.map((item) => item.total_usage / 1000),
 						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)',
+							colors.blue.darkest,
+							colors.blue.darkerer,
+							colors.blue.darker,
+							colors.blue.lighter,
+							colors.blue.lighterer,
+							colors.blue.lightest,
+							colors.blue.lighterest,
 						],
 						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)',
+							colors.blue.darkest,
+							colors.blue.darkerer,
+							colors.blue.darker,
+							colors.blue.lighter,
+							colors.blue.lighterer,
+							colors.blue.lightest,
+							colors.blue.lighterest,
 						],
 						borderWidth: 1,
 					},
@@ -269,7 +259,11 @@ export default function HomeTabs({ data }) {
 					<div className='centerHomeTab'>
 						<h5>Weekly</h5>
 						{data.dmy ? (
-							<BarChart chartData={weeklyChartData} />
+							<BarChart
+								yAxis='Litres'
+								xAxis='Date'
+								chartData={weeklyChartData}
+							/>
 						) : (
 							<div className='d-flex justify-content-center'>
 								<Loading />

@@ -3,7 +3,12 @@ import _ from 'lodash';
 import HomeTabs from '../components/Home/HomeTabs';
 import Recommendation from '../components/Home/Recommendation';
 import '../components/Home/style.css';
+import { Container, Spacer } from '@nextui-org/react';
+import styled from 'styled-components';
 
+const HeaderContainer = styled.div`
+	padding: 1em;
+`;
 function Home() {
 	// const { state, dispatch } = useGlobalContext();
 	const [data, setData] = useState({});
@@ -13,12 +18,15 @@ function Home() {
 			`${import.meta.env.VITE_BACKEND_URL}/analytics/detailed/test1`
 		);
 
+		setData(await response.json());
+	};
+
+	const getRecommendations = async () => {
 		const reco = await fetch(
 			`${import.meta.env.VITE_BACKEND_URL}/recommendations/test1`
 		);
 
 		setRecommendations(await reco.json());
-		setData(await response.json());
 	};
 
 	useEffect(() => {
@@ -27,26 +35,26 @@ function Home() {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (_.isEmpty(recommendations)) {
+			getRecommendations();
+		}
+	});
+
 	return (
 		<div className='center'>
-			<h3>Welcome, User</h3>
-			<h5>This is your usage so far</h5>
+			<HeaderContainer>
+				<h3>Welcome, test1 👋</h3>
+				<h5>This is your usage so far...</h5>
+			</HeaderContainer>
+
 			<div id='homeTabs'>
 				<HomeTabs data={data} />
-
-				<div id='recommendations'>
-					<h5>Recommendations</h5>
-					<div id='img'>
-						<Recommendation recommendations={recommendations} />
-					</div>
-				</div>
 			</div>
 
-			<div>
-				{/* Count: {state.counter}
-				<Button onClick={() => dispatch({ type: 'increment' })}>+</Button>
-				<Button onClick={() => dispatch({ type: 'decrement' })}>-</Button> */}
-			</div>
+			<Recommendation recommendations={recommendations} />
+
+			<Spacer y={3} />
 		</div>
 	);
 }

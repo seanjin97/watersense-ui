@@ -8,8 +8,8 @@ const marks = [
 		label: '0L',
 	},
 	{
-		value: 50000,
-		label: '50000L',
+		value: 500,
+		label: '500L',
 	},
 ];
 
@@ -18,20 +18,18 @@ function valuetext(value) {
 }
 
 export default function DiscreteSliderMarks({ goal, setGoal }) {
-
-
 	return (
 		<Box sx={{ width: 300 }}>
 			<Slider
-				onChange={(e) => setGoal(e.target.value)}
+				onChange={(e) => setGoal(e.target.value * 1000)}
 				aria-label='Custom marks'
 				min={0}
-				max={50000}
+				max={500}
 				defaultValue={0}
 				getAriaValueText={valuetext}
 				valueLabelDisplay='auto'
 				marks={marks}
-				value={goal}
+				value={goal / 1000}
 			/>
 		</Box>
 	);

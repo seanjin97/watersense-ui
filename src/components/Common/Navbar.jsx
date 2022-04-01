@@ -33,7 +33,6 @@ const StickyBottomNav = styled(BottomNavigation)`
 export default function Navbar() {
 	const classes = useStyles();
 	const [value, setValue] = React.useState(1);
-
 	return (
 		<div className='justify-center'>
 			<StickyBottomNav
@@ -59,10 +58,10 @@ export default function Navbar() {
 				/>
 
 				<BottomNavigationAction
-					label='Goals'
+					label='Overview'
 					icon={<CalendarTodayIcon />}
 					component={Link}
-					to='/Overview'
+					to='/overview'
 				/>
 			</StickyBottomNav>
 		</div>

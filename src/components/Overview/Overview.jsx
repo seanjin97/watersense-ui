@@ -1,62 +1,104 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import icon from '../Overview/waterheart.png';
+import { Text } from '@nextui-org/react';
+import styled from 'styled-components';
+import icon from './waterheart.png';
+import colors from '../../styles/colors';
 
-const Item = styled(Paper)(({ theme }) => ({
-	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-	...theme.typography.body2,
-	background: theme.palette.info.light,
-	padding: theme.spacing(2),
-	textAlign: 'center',
-	color: theme.palette.text.secondary,
-	width: '500px',
-}));
+const FlexContainer = styled.div`
+	display: flex;
+	justify-content: center;
+`;
 
-const monthLimit = 'Exceeded';
-const userMonCon = '22000';
-const monConLimit = '20000';
-const numDaysExceed = '5';
-const numDaysMonth = '31';
+const CardContainer = styled.div`
+	border-radius: 24px;
+	background: ${colors.grey};
+	padding: 1em;
+	margin: 1em;
+`;
 
-
-
-function MonthlyOverview({data}) {
-	console.log(data)
+const ContentContainer = styled(FlexContainer)`
+	justify-content: space-between;
+	align-items: center;
+`;
+function MonthlyOverview({ data }) {
 	return (
-		<Box sx={{ width: '100%' }}>
-			<Stack spacing={2} alignItems='center'>
-				<h2>March 2022 Overview</h2>
-				<Item>
-					<Grid container spacing={2}>
-						<Grid item xs={4}>
-							<img className='watericon' src={icon} width={100} height={100} />
-						</Grid>
-						<Grid item xs={8}>
-							<h4>Total Water Consumption</h4>
-							<h5>{`Monthly Limit ${monthLimit}`}</h5>
-							<h5>{`${data.prev_month_usage /1000} Litres / ${data.prev_month_goal/ 1000} Litres`}</h5>
-						</Grid>
-					</Grid>
-				</Item>
-				<Item>
-					<Grid container spacing={2}>
-						<Grid item xs={4}>
-							<img className='watericon' src={icon} width={100} height={100} />
-						</Grid>
-						<Grid item xs={8}>
-							<br />
-							<h4>Daily Limit Exceeded</h4>
-							<h3>{`${data.num_days_exceeded} / ${data.num_days_in_prev_month} Days`}</h3>
-						</Grid>
-					</Grid>
-				</Item>
-			</Stack>
-		</Box>
+		<>
+			<FlexContainer>
+				<Text h3>April 2022 Overview</Text>
+			</FlexContainer>
+
+			<FlexContainer>
+				<CardContainer>
+					<ContentContainer>
+						<img
+							className='watericon'
+							alt='waterheart'
+							src={icon}
+							width={50}
+							height='auto'
+						/>
+						<div className='mx-3'>
+							<Text size={11} weight='bold'>
+								Total Water Consumption for April 2022
+							</Text>
+							{data.prev_month_usage > data.prev_month_goal && (
+								<Text
+									size={12}
+									weight='bold'
+									css={{
+										background: colors.primaryRed,
+										display: 'inline',
+										color: colors.offWhite,
+									}}
+								>
+									Monthly Limit Exceeded
+								</Text>
+							)}
+							<Text size={12} weight='bold'>{`${
+								Math.round(
+									(data.prev_month_usage / 1000 + Number.EPSILON) * 100
+								) / 100
+							} Litres / ${data.prev_month_goal / 1000} Litres`}</Text>
+						</div>
+					</ContentContainer>
+				</CardContainer>
+			</FlexContainer>
+			<FlexContainer>
+				<CardContainer>
+					<ContentContainer>
+						<img
+							className='watericon'
+							alt='waterheart'
+							src={icon}
+							width={50}
+							height='auto'
+						/>
+						<div className='mx-3'>
+							<Text size={11} weight='bold'>
+								Total Water Consumption for April 2022
+							</Text>
+							{data.num_days_exceeded > 0 && (
+								<Text
+									size={11}
+									weight='bold'
+									transform='capitalize'
+									css={{
+										background: colors.primaryRed,
+										display: 'inline',
+										color: colors.offWhite,
+									}}
+								>
+									Number of days exceeding daily limit
+								</Text>
+							)}
+							<Text size={12} weight='bold'>
+								{data.num_days_exceeded} / {data.num_days_in_prev_month} Days
+							</Text>
+						</div>
+					</ContentContainer>
+				</CardContainer>
+			</FlexContainer>
+		</>
 	);
 }
 

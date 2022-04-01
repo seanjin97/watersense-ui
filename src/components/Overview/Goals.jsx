@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
+
 import { blue } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
+import { Loading, Text, Button } from '@nextui-org/react';
+import styled1 from 'styled-components';
+import { ConnectingAirportsOutlined } from '@mui/icons-material';
 import Monthlyslider from './monthlyslider';
 import logo from './droplet1.png';
+import colors from '../../styles/colors';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,43 +20,72 @@ const Item = styled(Paper)(({ theme }) => ({
 	color: theme.palette.text.secondary,
 }));
 
-const ColorButton = styled(Button)(({ theme }) => ({
-	color: theme.palette.getContrastText(blue[500]),
-	fontSize: 16,
-	padding: '6px 12px',
-	backgroundColor: blue[500],
-	'&:hover': {
-		backgroundColor: blue[700],
-	},
-}));
+// const ColorButton = styled(Button)(({ theme }) => ({
+// 	color: theme.palette.getContrastText(blue[500]),
+// 	fontSize: 16,
+// 	padding: '6px 12px',
+// 	backgroundColor: blue[500],
+// 	'&:hover': {
+// 		backgroundColor: blue[700],
+// 	},
+// }));
 
-function GoalSetting() {
-	const [goal, setGoal] = useState(0);
-	const sendGoal = async () => {
-		const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/goals`, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username: 'test1', month: goal }),
-		});
-	};
+const CardContainer = styled1.div`
+	border-radius: 24px;
+	background: ${colors.grey};
+	padding: 1em;
+	margin: 1em;
+`;
 
+const FlexContainer = styled1.div`
+	display: flex;
+	justify-content: center;
+`;
+
+const ContentContainer = styled1(FlexContainer)`
+	padding: 1em;
+`;
+
+function GoalSetting({ data, goal, setNewGoal, sendGoal }) {
+	if (!data) {
+		return <Loading />;
+	}
 	return (
-		<Box sx={{ width: '100%' }}>
-			<Stack spacing={2} alignItems='center'>
-				<Item>
-					<h1 className='GoalHeading'>Monthly Limit</h1>
-					<img className='waterlogo' src={logo} width={100} height={100} />
-					<Monthlyslider goal={goal} setGoal={setGoal} />
-					<ColorButton
-						className='monthlySubmit'
-						variant='contained'
-						onClick={sendGoal}
-					>
-						Submit
-					</ColorButton>
-				</Item>
-			</Stack>
-		</Box>
+		// <Box sx={{ width: '100%', borderRadius: '25px' }}>
+		// 	<Stack spacing={2} alignItems='center'>
+		// 		<Item>
+		// 			<Text h3>Monthly Limit</Text>
+		// 			<img className='waterlogo' src={logo} width={100} height={100} />
+		// 			<Monthlyslider goal={goal} setGoal={setGoal} />
+		// 			<ColorButton
+		// 				className='monthlySubmit'
+		// 				variant='contained'
+		// 				onClick={sendGoal}
+		// 			>
+		// 				Submit
+		// 			</ColorButton>
+		// 		</Item>
+		// 	</Stack>
+		// </Box>
+		<CardContainer>
+			<FlexContainer>
+				<Text h3>Monthly Goal</Text>
+			</FlexContainer>
+			<FlexContainer className='mt-3'>
+				<img className='waterlogo' src={logo} width={100} height={100} />
+			</FlexContainer>
+			<ContentContainer>
+				{data && data.goals && (
+					<Monthlyslider goal={goal} setGoal={setNewGoal} />
+				)}
+			</ContentContainer>
+
+			<FlexContainer>
+				<Button auto onClick={sendGoal}>
+					Submit
+				</Button>
+			</FlexContainer>
+		</CardContainer>
 	);
 }
 

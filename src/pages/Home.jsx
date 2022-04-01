@@ -7,7 +7,7 @@ import { Container, Spacer } from '@nextui-org/react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
-	padding: 1em;
+	margin: 1em;
 `;
 function Home() {
 	// const { state, dispatch } = useGlobalContext();

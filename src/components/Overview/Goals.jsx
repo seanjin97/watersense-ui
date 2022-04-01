@@ -29,14 +29,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
 function GoalSetting() {
 	const [goal, setGoal] = useState(0);
 	const sendGoal = async () => {
-		const response = await fetch(
-			'https://watersense-api-watersense-seanjin97.cloud.okteto.net/goals',
-			{
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ username: 'test1', month: goal }),
-			}
-		);
+		const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/goals`, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ username: 'test1', month: goal }),
+		});
 	};
 
 	return (

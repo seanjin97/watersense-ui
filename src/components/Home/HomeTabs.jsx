@@ -102,7 +102,7 @@ export default function HomeTabs({ data }) {
 					},
 					{
 						type: 'line',
-						label: 'Amount of water used',
+						label: 'Amount of water used (L)',
 						data: data.dmy.monthly.map((item) => item.total_usage / 1500),
 						fill: false,
 						borderColor: [colors.blue.darker],
@@ -123,7 +123,7 @@ export default function HomeTabs({ data }) {
 					},
 					{
 						type: 'line',
-						label: 'Amount of water used',
+						label: 'Amount of water used (L)',
 						data: data.dmy.daily.map((item) => item.total_usage / 1500),
 						fill: false,
 						borderColor: [colors.blue.darker],

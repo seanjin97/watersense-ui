@@ -7,6 +7,7 @@ import _ from 'lodash';
 import { firstN } from '../../utils/utils';
 import colors from '../../styles/colors';
 import icons from '../../styles/icons';
+import 'animate.css';
 
 const MainContainer = styled.div`
 	border-radius: 24px;
@@ -119,12 +120,12 @@ function Recommendation({ recommendations }) {
 			<MainContainer>
 				{index && (
 					<HoverArrowRightContainer>
-						<i className='fa-solid fa-chevron-right' />
+						<i className='fa-solid fa-chevron-right animate__animated animate__bounce animate__infinite animate__slow' />
 					</HoverArrowRightContainer>
 				)}
 				{!index && (
 					<HoverArrowLeftContainer>
-						<i className='fa-solid fa-chevron-left' />
+						<i className='fa-solid fa-chevron-left animate__animated animate__bounce animate__infinite animate__slow' />
 					</HoverArrowLeftContainer>
 				)}
 

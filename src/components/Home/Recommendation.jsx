@@ -94,10 +94,7 @@ function Recommendation({ recommendations }) {
 							}}
 						>
 							Based on national data
-							<i
-								className='fa-solid fa-circle-info fa-2xs'
-								style={{ color: colors.blue.lighter }}
-							/>
+							<i className='fa-solid fa-circle-info fa-2xs' />
 						</Text>
 					</Tooltip>
 				) : (
@@ -109,7 +106,7 @@ function Recommendation({ recommendations }) {
 						<Text
 							span
 							css={{
-								background: colors.blue.lighter,
+								background: colors.blue.lightest,
 								textDecoration: 'underline',
 							}}
 						>

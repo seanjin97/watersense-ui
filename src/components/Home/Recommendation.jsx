@@ -13,6 +13,18 @@ const MainContainer = styled.div`
 	background: ${colors.grey};
 	padding: 1em;
 	margin: 1em;
+	position: relative;
+`;
+
+const HoverArrowRightContainer = styled.div`
+	position: absolute;
+	right: 0;
+	bottom: 50%;
+`;
+const HoverArrowLeftContainer = styled.div`
+	position: absolute;
+	left: 0;
+	bottom: 50%;
 `;
 
 const FlexContainer = styled.div`
@@ -82,7 +94,10 @@ function Recommendation({ recommendations }) {
 							}}
 						>
 							Based on national data
-							<i className='fa-solid fa-circle-info fa-2xs' />
+							<i
+								className='fa-solid fa-circle-info fa-2xs'
+								style={{ color: colors.blue.lighter }}
+							/>
 						</Text>
 					</Tooltip>
 				) : (
@@ -105,6 +120,17 @@ function Recommendation({ recommendations }) {
 				)}
 			</h5>
 			<MainContainer>
+				{index && (
+					<HoverArrowRightContainer>
+						<i className='fa-solid fa-chevron-right' />
+					</HoverArrowRightContainer>
+				)}
+				{!index && (
+					<HoverArrowLeftContainer>
+						<i className='fa-solid fa-chevron-left' />
+					</HoverArrowLeftContainer>
+				)}
+
 				<Text
 					css={{
 						background: colors.blue.darkest,

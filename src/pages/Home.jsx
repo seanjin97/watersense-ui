@@ -5,6 +5,7 @@ import Recommendation from '../components/Home/Recommendation';
 import '../components/Home/style.css';
 import { Container, Spacer } from '@nextui-org/react';
 import styled from 'styled-components';
+import FullScreenLoading from '../components/Common/FullScreenLoading';
 
 const HeaderContainer = styled.div`
 	margin: 1em;
@@ -40,6 +41,10 @@ function Home() {
 			getRecommendations();
 		}
 	});
+
+	if (_.isEmpty(recommendations || _.isEmpty(data))) {
+		return <FullScreenLoading />;
+	}
 
 	return (
 		<div className='center'>

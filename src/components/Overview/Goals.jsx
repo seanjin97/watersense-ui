@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import { Loading, Text, Button } from '@nextui-org/react';
 import styled1 from 'styled-components';
 import { ConnectingAirportsOutlined } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import Monthlyslider from './monthlyslider';
 import logo from './droplet1.png';
 import colors from '../../styles/colors';
@@ -46,7 +47,8 @@ const ContentContainer = styled1(FlexContainer)`
 	padding: 1em;
 `;
 
-function GoalSetting({ data, goal, setNewGoal, sendGoal }) {
+function GoalSetting({ data, goal, setNewGoal, sendGoal, loading, getData }) {
+	const navigate = useNavigate();
 	if (!data) {
 		return <Loading />;
 	}
@@ -81,8 +83,15 @@ function GoalSetting({ data, goal, setNewGoal, sendGoal }) {
 			</ContentContainer>
 
 			<FlexContainer>
-				<Button auto onClick={sendGoal}>
-					Submit
+				<Button
+					auto
+					ghost
+					onClick={async () => {
+						await sendGoal();
+						navigate(0);
+					}}
+				>
+					{loading ? <Loading /> : 'Submit'}
 				</Button>
 			</FlexContainer>
 		</CardContainer>

@@ -32,6 +32,7 @@ const colors = {
 		lightest: '#DFF6FF',
 		lighterest: '#74B1F6',
 	},
+	greyBlue: '#cdd0e4',
 	grey: '#F5F5F5',
 	products: {
 		yield: '#FF385C',

@@ -109,7 +109,7 @@ function Recommendation({ recommendations }) {
 						<Text
 							span
 							css={{
-								background: colors.blue.lightest,
+								background: colors.blue.lighter,
 								textDecoration: 'underline',
 							}}
 						>

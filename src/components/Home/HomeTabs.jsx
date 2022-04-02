@@ -80,7 +80,7 @@ export default function HomeTabs({ data }) {
 					},
 					{
 						type: 'line',
-						label: 'Amount of water used',
+						label: 'Amount of water used (L)',
 						data: data.dmy.weekly.map((item) => item.total_usage / 1500),
 						fill: false,
 						borderColor: [colors.blue.darker],

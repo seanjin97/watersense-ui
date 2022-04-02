@@ -3,6 +3,7 @@ import { Text } from '@nextui-org/react';
 import styled from 'styled-components';
 import icon from './waterheart.png';
 import colors from '../../styles/colors';
+import { getPrevMonth } from '../../utils/utils';
 
 const FlexContainer = styled.div`
 	display: flex;
@@ -24,7 +25,9 @@ function MonthlyOverview({ data }) {
 	return (
 		<>
 			<FlexContainer>
-				<Text h3>April 2022 Overview</Text>
+				<Text h3>
+					{getPrevMonth().month} {getPrevMonth().year} Overview
+				</Text>
 			</FlexContainer>
 
 			<FlexContainer>
@@ -39,7 +42,8 @@ function MonthlyOverview({ data }) {
 						/>
 						<div className='mx-3'>
 							<Text size={11} weight='bold'>
-								Total Water Consumption for April 2022
+								Total Water Consumption for {getPrevMonth().month}{' '}
+								{getPrevMonth().year}
 							</Text>
 							{data.prev_month_usage > data.prev_month_goal && (
 								<Text
@@ -75,7 +79,8 @@ function MonthlyOverview({ data }) {
 						/>
 						<div className='mx-3'>
 							<Text size={11} weight='bold'>
-								Total Water Consumption for April 2022
+								Total Water Consumption for {getPrevMonth().month}{' '}
+								{getPrevMonth().year}
 							</Text>
 							{data.num_days_exceeded > 0 && (
 								<Text

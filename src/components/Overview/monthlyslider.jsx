@@ -24,7 +24,7 @@ export default function DiscreteSliderMarks({ goal, setGoal }) {
 				onChange={(e) => setGoal(e.target.value * 1000)}
 				aria-label='Custom marks'
 				min={0}
-				max={500}
+				max={50000}
 				defaultValue={0}
 				getAriaValueText={valuetext}
 				valueLabelDisplay='auto'

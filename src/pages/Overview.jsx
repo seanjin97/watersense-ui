@@ -22,7 +22,7 @@ function MonthlyOverview() {
 	const [loading, setLoading] = useState(false);
 	const getData = async () => {
 		const response = await fetch(
-			`${import.meta.env.VITE_BACKEND_URL}/analytics/overview/test1`
+			`${import.meta.env.VITE_BACKEND_URL}/analytics/overview/smartcitizen22`
 		);
 		const res = await response.json();
 		setData(res);
@@ -34,7 +34,7 @@ function MonthlyOverview() {
 		const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/goals`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username: 'test1', month: newGoal }),
+			body: JSON.stringify({ username: 'smartcitizen22', month: newGoal }),
 		});
 		if ((await response.status) === 200) {
 			setLoading(false);

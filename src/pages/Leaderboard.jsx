@@ -47,7 +47,7 @@ function Leaderboard() {
 
 	const getLeaderboard = async () => {
 		const res = await fetch(
-			`${import.meta.env.VITE_BACKEND_URL}/leaderboard/test1`
+			`${import.meta.env.VITE_BACKEND_URL}/leaderboard/smartcitizen22`
 		);
 		if (res.status === 200) {
 			setLeaderboard(await res.json());

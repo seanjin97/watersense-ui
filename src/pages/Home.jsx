@@ -16,7 +16,7 @@ function Home() {
 	const [recommendations, setRecommendations] = useState({});
 	const getData = async () => {
 		const response = await fetch(
-			`${import.meta.env.VITE_BACKEND_URL}/analytics/detailed/test1`
+			`${import.meta.env.VITE_BACKEND_URL}/analytics/detailed/smartcitizen22`
 		);
 
 		setData(await response.json());
@@ -24,7 +24,7 @@ function Home() {
 
 	const getRecommendations = async () => {
 		const reco = await fetch(
-			`${import.meta.env.VITE_BACKEND_URL}/recommendations/test1`
+			`${import.meta.env.VITE_BACKEND_URL}/recommendations/smartcitizen22`
 		);
 
 		setRecommendations(await reco.json());
@@ -49,7 +49,7 @@ function Home() {
 	return (
 		<div className='center'>
 			<HeaderContainer>
-				<h3>Welcome, test1 👋</h3>
+				<h3>Welcome, smartcitizen22 👋</h3>
 				<h5>This is your usage so far...</h5>
 			</HeaderContainer>
 

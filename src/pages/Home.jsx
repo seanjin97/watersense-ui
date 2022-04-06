@@ -45,7 +45,7 @@ function Home() {
 	if (_.isEmpty(recommendations || _.isEmpty(data))) {
 		return <FullScreenLoading />;
 	}
-
+	console.log(recommendations);
 	return (
 		<div className='center'>
 			<HeaderContainer>

@@ -47,26 +47,29 @@ function Recommendation({ recommendations }) {
 	let peerRecommendations = null;
 	let userUsage = null;
 	let peerUsage = null;
+
 	if (
 		recommendations &&
-		recommendations.user_usage &&
 		recommendations.monthly_goal_comparison &&
-		recommendations.monthly_goal_comparison.statistics_recommendations &&
-		recommendations.peer_comparison &&
-		recommendations.peer_comparison.peers &&
-		recommendations.peer_comparison.peer_recommendations
+		recommendations.monthly_goal_comparison.statistics_recommendations
 	) {
 		monthlyGoalsRecommendations = firstN(
 			recommendations.monthly_goal_comparison.statistics_recommendations,
 			3
 		);
+	}
+	if (
+		recommendations &&
+		recommendations.peer_comparison &&
+		recommendations.peer_comparison.peers &&
+		recommendations.peer_comparison.peer_recommendations
+	) {
 		peerRecommendations = firstN(
 			recommendations.peer_comparison.peer_recommendations,
 			3
 		);
 		userUsage = recommendations.user_usage;
 		peerUsage = recommendations.peer_comparison.peers;
-		console.log(recommendations);
 	}
 
 	if (_.isEmpty(recommendations)) {
@@ -200,61 +203,73 @@ function Recommendation({ recommendations }) {
 								</RecommendationItem>
 							))
 						) : (
-							<Loading />
+							<RecommendationItem>
+								<Text>
+									Although you have exceed your monthly water usage goals, you
+									still used less water than Singapore&apos;s average water
+									usage for each sensor category. Good job!
+								</Text>
+							</RecommendationItem>
 						)}
 					</div>
 					<div>
-						{peerRecommendations ? (
-							Object.keys(peerRecommendations).map((key) => (
-								<RecommendationItem>
-									<FlexContainer className='my-3'>
-										<i className={icons[key]} />
-									</FlexContainer>
+						{peerRecommendations
+							? Object.keys(peerRecommendations).map((key) => (
+									<RecommendationItem>
+										<FlexContainer className='my-3'>
+											<i className={icons[key]} />
+										</FlexContainer>
 
-									<Text small>
-										{recommendations.peer_comparison.peer_recommendations[key]}
-									</Text>
-									<Spacer />
-									<Text size={14} css={{ background: colors.blue.lightest }}>
-										You used{' '}
-										<Text span weight='bold' css={{ color: colors.primaryRed }}>
-											{Math.round(
-												(userUsage[key].total_usage / 1000 + Number.EPSILON) *
-													100
-											) / 100}
-											L
-										</Text>{' '}
-										of water in the{' '}
-										<Text
-											span
-											weight='bold'
-											css={{
-												color: colors.primaryRed,
-											}}
-										>
-											{key}(s)
-										</Text>{' '}
-										last month. The average of your peers is{' '}
-										<Text
-											span
-											weight='bold'
-											css={{ color: colors.secondaryBlue }}
-										>
-											{Math.round(
-												(recommendations.peer_comparison.peers[key]
-													.average_total_usage /
-													1000 +
-													Number.EPSILON) *
-													100
-											) / 100}
-											L
+										<Text small>
+											{
+												recommendations.peer_comparison.peer_recommendations[
+													key
+												]
+											}
 										</Text>
-									</Text>
-								</RecommendationItem>
-							))
-						) : (
-							<Loading />
-						)}
+										<Spacer />
+										<Text size={14} css={{ background: colors.blue.lightest }}>
+											You used{' '}
+											<Text
+												span
+												weight='bold'
+												css={{ color: colors.primaryRed }}
+											>
+												{Math.round(
+													(userUsage[key].total_usage / 1000 + Number.EPSILON) *
+														100
+												) / 100}
+												L
+											</Text>{' '}
+											of water in the{' '}
+											<Text
+												span
+												weight='bold'
+												css={{
+													color: colors.primaryRed,
+												}}
+											>
+												{key}(s)
+											</Text>{' '}
+											last month. The average of your peers is{' '}
+											<Text
+												span
+												weight='bold'
+												css={{ color: colors.secondaryBlue }}
+											>
+												{Math.round(
+													(recommendations.peer_comparison.peers[key]
+														.average_total_usage /
+														1000 +
+														Number.EPSILON) *
+														100
+												) / 100}
+												L
+											</Text>
+										</Text>
+									</RecommendationItem>
+							  ))
+							: null}
 					</div>
 				</SwipeableViews>
 			</MainContainer>

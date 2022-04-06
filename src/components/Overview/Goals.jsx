@@ -71,7 +71,7 @@ function GoalSetting({ data, goal, setNewGoal, sendGoal, loading, getData }) {
 		// </Box>
 		<CardContainer>
 			<FlexContainer>
-				<Text h3>Monthly Goal</Text>
+				<Text h5>Set Monthly Water Usage Goal</Text>
 			</FlexContainer>
 			<FlexContainer className='mt-3'>
 				<img className='waterlogo' src={logo} width={100} height={100} />
@@ -85,7 +85,7 @@ function GoalSetting({ data, goal, setNewGoal, sendGoal, loading, getData }) {
 			<FlexContainer>
 				<Button
 					auto
-					ghost
+					flat
 					onClick={async () => {
 						await sendGoal();
 						navigate(0);

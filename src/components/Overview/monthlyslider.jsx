@@ -8,8 +8,8 @@ const marks = [
 		label: '0L',
 	},
 	{
-		value: 500,
-		label: '500L',
+		value: 30000,
+		label: '30000L',
 	},
 ];
 
@@ -24,7 +24,7 @@ export default function DiscreteSliderMarks({ goal, setGoal }) {
 				onChange={(e) => setGoal(e.target.value * 1000)}
 				aria-label='Custom marks'
 				min={0}
-				max={50000}
+				max={30000}
 				defaultValue={0}
 				getAriaValueText={valuetext}
 				valueLabelDisplay='auto'
